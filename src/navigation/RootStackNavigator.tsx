@@ -13,8 +13,16 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootStackNavigator() {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Setting" component={Setting} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Setting"
+        component={Setting}
+        options={{ title: '설정' }}
+      />
     </Stack.Navigator>
   );
 }
