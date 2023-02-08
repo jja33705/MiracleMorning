@@ -6,7 +6,8 @@ function ToDoListItem() {
   return (
     <View style={styles.container}>
       <CheckBox value={true} />
-      <Text>운동</Text>
+      <Text style={styles.title}>운동</Text>
+      <Text style={styles.time}>~ 07:00</Text>
     </View>
   );
 }
@@ -14,6 +15,16 @@ function ToDoListItem() {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginTop: 20,
+  },
+  title: {
+    fontSize: 20,
+    marginLeft: 10,
+    fontWeight: 'bold',
+    flex: 1,
+  },
+  time: {
+    fontSize: 20,
   },
 });
 

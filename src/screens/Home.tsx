@@ -12,7 +12,9 @@ function Home({ navigation }: HomeProps) {
     <View style={styles.container}>
       <TimeCard />
       <ToDoListCard />
-      <Button onPress={() => navigation.navigate('Setting')} title="Setting" />
+      <View style={styles.buttonContainer}>
+        <Button onPress={() => navigation.navigate('Setting')} title="설정" />
+      </View>
     </View>
   );
 }
@@ -27,6 +29,9 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     fontSize: 100,
+  },
+  buttonContainer: {
+    marginTop: 10,
   },
 });
 

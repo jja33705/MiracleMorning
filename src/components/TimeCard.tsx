@@ -8,7 +8,7 @@ function TimeCard() {
       <Text style={styles.time}>06:00</Text>
       <View style={styles.progressContainer}>
         <Text style={styles.progressNumber}>1</Text>
-        <Text style={styles.progressText}>일째 성공중</Text>
+        <Text style={styles.progressText}>일째 성공중!</Text>
       </View>
     </View>
   );
