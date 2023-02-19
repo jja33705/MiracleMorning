@@ -1,13 +1,26 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useAppSelector } from '../hooks/hooks';
+import {
+  selectProgressDay,
+  selectRisingHour,
+  selectRisingMinute,
+} from '../reducers/timeSlice';
+import { numberToTwoDigits } from '../utils/formatting';
 
 function TimeCard() {
+  const progressDay = useAppSelector(selectProgressDay);
+  const risingHour = useAppSelector(selectRisingHour);
+  const risingMinute = useAppSelector(selectRisingMinute);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>기상시간</Text>
-      <Text style={styles.time}>06:00</Text>
+      <Text style={styles.time}>{`${numberToTwoDigits(
+        risingHour,
+      )}:${numberToTwoDigits(risingMinute)}`}</Text>
       <View style={styles.progressContainer}>
-        <Text style={styles.progressNumber}>1</Text>
+        <Text style={styles.progressDay}>{progressDay}</Text>
         <Text style={styles.progressText}>일째 성공중!</Text>
       </View>
     </View>
@@ -36,7 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  progressNumber: {
+  progressDay: {
     fontSize: 20,
     color: 'green',
   },
