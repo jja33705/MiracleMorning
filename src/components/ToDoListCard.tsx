@@ -2,13 +2,19 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import HorizontalLine from './HorizontalLine';
 import ToDoListItem from './ToDoListItem';
+import { useAppSelector } from '../hooks/hooks';
+import { selectToDos } from '../reducers/toDoSlice';
 
 function ToDoListCard() {
+  const toDos = useAppSelector(selectToDos);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>해야 할 일</Text>
       <HorizontalLine />
-      <ToDoListItem />
+      {toDos.map(toDo => (
+        <ToDoListItem toDo={toDo} />
+      ))}
     </View>
   );
 }

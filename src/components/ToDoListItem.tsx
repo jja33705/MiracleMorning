@@ -1,13 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+import ToDo from '../interfaces/ToDo';
+import { numberToTwoDigits } from '../utils/formatting';
 
-function ToDoListItem() {
+type Props = {
+  toDo: ToDo;
+};
+
+function ToDoListItem({ toDo }: Props) {
   return (
     <View style={styles.container}>
-      <CheckBox value={true} />
-      <Text style={styles.title}>운동</Text>
-      <Text style={styles.time}>~ 07:00</Text>
+      <CheckBox value={toDo.completed} />
+      <Text style={styles.title}>{toDo.content}</Text>
+      <Text style={styles.time}>{`~ ${numberToTwoDigits(
+        toDo.deadlineHour,
+      )}:${numberToTwoDigits(toDo.deadlineMinute)}`}</Text>
     </View>
   );
 }
