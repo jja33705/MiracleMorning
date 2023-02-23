@@ -4,7 +4,7 @@ import CheckBox from '@react-native-community/checkbox';
 import ToDo from '../interfaces/ToDo';
 import { numberToTwoDigits } from '../utils/formatting';
 import { useAppDispatch } from '../hooks/hooks';
-import { completeToDo } from '../reducers/toDoSlice';
+import { completeToDo } from '../store/reducers/toDoSlice';
 
 type Props = {
   toDo: ToDo;

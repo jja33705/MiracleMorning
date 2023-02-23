@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { RootState } from '../store';
+import type { RootState } from '..';
 
 interface timeState {
   risingHour: number;
@@ -28,7 +28,8 @@ const timeSlice = createSlice({
 
 export const { incrementProgressDay, initializeProgressDay } =
   timeSlice.actions;
-export const selectProgressDay = (state: RootState) => state.time.progressDay;
-export const selectRisingHour = (state: RootState) => state.time.risingHour;
-export const selectRisingMinute = (state: RootState) => state.time.risingMinute;
+export const selectProgressDay = (state: RootState) => state.times.progressDay;
+export const selectRisingHour = (state: RootState) => state.times.risingHour;
+export const selectRisingMinute = (state: RootState) =>
+  state.times.risingMinute;
 export default timeSlice.reducer;

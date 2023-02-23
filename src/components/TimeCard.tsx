@@ -5,7 +5,7 @@ import {
   selectProgressDay,
   selectRisingHour,
   selectRisingMinute,
-} from '../reducers/timeSlice';
+} from '../store/reducers/timeSlice';
 import { numberToTwoDigits } from '../utils/formatting';
 
 function TimeCard() {

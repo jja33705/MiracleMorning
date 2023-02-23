@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import ToDo from '../interfaces/ToDo';
-import type { RootState } from '../store';
+import ToDo from '../../interfaces/ToDo';
+import type { RootState } from '..';
 
 interface toDoState {
   toDos: Array<ToDo>;
@@ -49,5 +49,5 @@ const toDoSlice = createSlice({
 });
 
 export const { addToDo, completeToDo } = toDoSlice.actions;
-export const selectToDos = (state: RootState) => state.toDo.toDos;
+export const selectToDos = (state: RootState) => state.toDos.toDos;
 export default toDoSlice.reducer;

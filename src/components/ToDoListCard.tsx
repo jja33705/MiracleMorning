@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import HorizontalLine from './HorizontalLine';
 import ToDoListItem from './ToDoListItem';
 import { useAppSelector } from '../hooks/hooks';
-import { selectToDos } from '../reducers/toDoSlice';
+import { selectToDos } from '../store/reducers/toDoSlice';
 
 function ToDoListCard() {
   const toDos = useAppSelector(selectToDos);
