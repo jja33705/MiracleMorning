@@ -12,8 +12,8 @@ function ToDoListCard() {
     <View style={styles.container}>
       <Text style={styles.title}>해야 할 일</Text>
       <HorizontalLine />
-      {toDos.map(toDo => (
-        <ToDoListItem toDo={toDo} key={toDo.id} />
+      {toDos.map((toDo, index) => (
+        <ToDoListItem toDo={toDo} key={index} index={index} />
       ))}
     </View>
   );

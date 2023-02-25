@@ -5,20 +5,27 @@ import ToDo from '../interfaces/ToDo';
 import { numberToTwoDigits } from '../utils/formatting';
 import { useAppDispatch } from '../hooks/hooks';
 import { completeToDo } from '../store/reducers/toDoSlice';
+import { isCurrentTimeBeforeDeadline } from '../utils/date';
 
 type Props = {
   toDo: ToDo;
+  index: number;
 };
 
-function ToDoListItem({ toDo }: Props) {
+function ToDoListItem({ toDo, index }: Props) {
   const dispatch = useAppDispatch();
+
+  const onValueChangeCheckBox = () => {
+    if (isCurrentTimeBeforeDeadline(toDo)) {
+      dispatch(completeToDo(index));
+    } else {
+      console.log('시간이 지났습니다.');
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <CheckBox
-        value={toDo.completed}
-        onValueChange={() => dispatch(completeToDo(toDo.id))}
-      />
+      <CheckBox value={toDo.completed} onValueChange={onValueChangeCheckBox} />
       <Text style={styles.title}>{toDo.content}</Text>
       <Text style={styles.time}>{`~ ${numberToTwoDigits(
         toDo.deadlineHour,

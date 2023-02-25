@@ -9,21 +9,18 @@ interface toDoState {
 const initialState: toDoState = {
   toDos: [
     {
-      id: 1,
       content: '스트레칭',
       deadlineHour: 6,
       deadlineMinute: 40,
       completed: false,
     },
     {
-      id: 2,
       content: '운동',
       deadlineHour: 8,
       deadlineMinute: 20,
-      completed: false,
+      completed: true,
     },
     {
-      id: 3,
       content: '독서',
       deadlineHour: 9,
       deadlineMinute: 0,
@@ -39,11 +36,9 @@ const toDoSlice = createSlice({
     addToDo: (state, action: PayloadAction<ToDo>) => {
       state.toDos = state.toDos.concat(action.payload);
     },
-    completeToDo: (state, action: PayloadAction<Number>) => {
-      const toDo = state.toDos.find(toDo => toDo.id === action.payload);
-      if (toDo !== undefined) {
-        toDo.completed = true;
-      }
+    completeToDo: (state, action: PayloadAction<number>) => {
+      const toDo = state.toDos[action.payload];
+      toDo.completed = !toDo.completed;
     },
   },
 });
