@@ -26,7 +26,9 @@ function ToDoListItem({ toDo, index }: Props) {
   return (
     <View style={styles.container}>
       <CheckBox value={toDo.completed} onValueChange={onValueChangeCheckBox} />
-      <Text style={styles.title}>{toDo.content}</Text>
+      <Text style={[styles.content, toDo.completed && styles.completedContent]}>
+        {toDo.content}
+      </Text>
       <Text style={styles.time}>{`~ ${numberToTwoDigits(
         toDo.deadlineHour,
       )}:${numberToTwoDigits(toDo.deadlineMinute)}`}</Text>
@@ -39,11 +41,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 20,
   },
-  title: {
+  content: {
     fontSize: 20,
     marginLeft: 10,
     fontWeight: 'bold',
     flex: 1,
+    color: 'black',
+  },
+  completedContent: {
+    textDecorationLine: 'line-through',
+    color: 'silver',
   },
   time: {
     fontSize: 20,
